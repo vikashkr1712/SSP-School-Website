@@ -1,0 +1,66 @@
+:root {
+  --color-primary: #0b4ea2;
+  --color-primary-dark: #083b7a;
+  --color-primary-soft: #e8f1ff;
+  --color-accent: #ffd23f;
+  --color-accent-soft: rgba(255, 210, 63, 0.18);
+  --color-surface: #ffffff;
+  --color-surface-soft: rgba(255, 255, 255, 0.94);
+  --color-page: #f5f9ff;
+  --color-page-alt: #eef5ff;
+  --color-text: #0a1b33;
+  --color-text-muted: #566b86;
+  --color-border: rgba(11, 78, 162, 0.12);
+  --color-border-strong: rgba(11, 78, 162, 0.18);
+  --shadow-sm: 0 10px 24px rgba(12, 31, 66, 0.08);
+  --shadow-md: 0 18px 42px rgba(12, 31, 66, 0.1);
+  --shadow-lg: 0 24px 50px rgba(11, 78, 162, 0.16);
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 1.75rem;
+  --radius-pill: 999px;
+  --container-width: 1200px;
+  --section-padding: clamp(3rem, 6vw, 4.75rem);
+  --section-gap: clamp(1.25rem, 2vw, 1.75rem);
+  --transition-fast: 180ms ease;
+  --transition-base: 240ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Aptos", "Segoe UI", "Inter", sans-serif;
+  color: var(--color-text);
+  background: var(--color-page);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(255, 210, 63, 0.45);
+  color: var(--color-text);
+}
