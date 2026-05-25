@@ -151,7 +151,7 @@ function Home() {
               an experience that goes beyond textbooks.
             </p>
             <Link className="home-button home-button--secondary" to="/contact">
-              Enrol Now
+              Enroll Now
             </Link>
           </div>
 
@@ -259,7 +259,7 @@ function Home() {
               learning and strong support.
             </p>
             <Link className="home-button home-button--secondary" to="/admission">
-              Book Now
+              Enroll Now
             </Link>
           </div>
           <img src={principalImage} alt="Principal leading SSP School" />
