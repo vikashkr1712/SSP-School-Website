@@ -1,6 +1,22 @@
 # SSP School Website
 
-MERN school website for SSP School with a React/Vite frontend and an Express/MongoDB backend.
+SSP School Website is a MERN stack project built for a school website with a React/Vite frontend and an Express/MongoDB backend.
+
+## Overview
+
+This project includes:
+
+- a responsive public-facing website for school information
+- admission and contact forms connected to the backend API
+- locally stored school images for reliable rendering
+- clean client-side navigation for pages such as Home, About, Admission, and Contact
+
+## Tech Stack
+
+- Frontend: React, Vite, React Router
+- Backend: Node.js, Express
+- Database: MongoDB
+- Styling: CSS
 
 ## Project Structure
 
@@ -55,36 +71,29 @@ cd frontend
 npm run dev
 ```
 
-## Build for Production
+## Build
 
 ```bash
 cd frontend
 npm run build
 ```
 
-The frontend builds to `frontend/dist/`.
+The production frontend bundle is generated in `frontend/dist/`.
 
-## Backend API
+## API Routes
 
 - `POST /api/admission` - submit an admission inquiry
 - `POST /api/contact` - submit a contact form inquiry
 
-## Deployment
+## Production Checklist
 
-### Backend
+- Update `MONGODB_URI` for the target database
+- Set `VITE_API_URL` to the correct backend URL if needed
+- Use `npm run build` in the frontend before deploying
+- Ensure the final environment serves the SPA correctly so routes like `/about` and `/contact` work on refresh
 
-1. Deploy the `backend/` folder to a Node.js host such as Render, Railway, or Fly.io.
-2. Set `MONGODB_URI` and `PORT` in the host environment settings.
-3. Use `npm run start` as the production start command.
+## Notes
 
-### Frontend
-
-1. Build the frontend with `npm run build`.
-2. Deploy the `frontend/dist/` output to a static host such as Netlify, Vercel, or GitHub Pages.
-3. Keep the frontend API URL pointed to the deployed backend by setting `VITE_API_URL`.
-
-### Notes
-
-- The app uses hash-based routing, so static hosting works without extra rewrite rules.
+- The app uses browser-based routing for a smoother user experience.
 - School images are stored locally in `frontend/public/images/` to avoid hotlinking issues.
-- Add your production backend URL before deployment so the admission form can submit correctly.
+- The backend and frontend can be run independently during development.
