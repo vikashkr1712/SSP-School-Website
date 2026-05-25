@@ -6,12 +6,6 @@
     linear-gradient(180deg, var(--color-page) 0%, var(--color-page-alt) 100%);
 }
 
-.section-shell {
-  width: min(var(--container-width), calc(100% - 2rem));
-  margin: 0 auto;
-  padding: var(--section-padding) 0;
-}
-
 .home-hero {
   display: grid;
   gap: clamp(1.5rem, 3vw, 2.25rem);
@@ -298,6 +292,12 @@
   line-height: 1.2;
 }
 
+.home-intro__feature-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
 .home-feature-card__image img,
 .home-learning-card__art img,
 .home-choose__image-card img,
@@ -324,6 +324,7 @@
   display: grid;
   gap: 1rem;
   margin-bottom: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }
 
 .home-learning-card {
@@ -402,6 +403,7 @@
 .home-promo {
   display: grid;
   gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 }
 
 .home-promo__panel {
@@ -465,6 +467,7 @@
   display: grid;
   gap: 1.25rem;
   align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 }
 
 .home-admission-band__copy {
@@ -514,6 +517,7 @@
 .home-event {
   display: grid;
   gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 }
 
 .home-event__visual {
@@ -549,6 +553,7 @@
 .home-card-grid {
   display: grid;
   gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
 }
 
 .home-card {
@@ -632,35 +637,6 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .home-intro__grid {
-    align-items: start;
-  }
-
-  .home-intro__feature-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-self: start;
-  }
-
-  .home-learning-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .home-promo {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .home-admission-band {
-    grid-template-columns: 1fr 1.15fr;
-  }
-
-  .home-event {
-    grid-template-columns: 0.95fr 1.05fr;
-  }
-
-  .home-card-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .home-cta__content {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
@@ -679,8 +655,8 @@
     padding-top: 4rem;
   }
 
-  .home-intro__feature-grid {
-    grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+  .home-intro__grid {
+    align-items: start;
   }
 
   .home-hero__visual {
@@ -706,5 +682,113 @@
     right: auto;
     max-width: none;
     transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .home-hero {
+    gap: 1.2rem;
+    padding-top: 3.5rem;
+  }
+
+  .home-hero h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+    max-width: none;
+  }
+
+  .home-section-heading h2,
+  .home-cta h2 {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+    max-width: none;
+  }
+
+  .home-hero p,
+  .home-intro__text p,
+  .home-card p,
+  .home-cta p,
+  .home-choose__item p {
+    font-size: 0.98rem;
+  }
+
+  .home-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .home-button {
+    width: 100%;
+  }
+
+  .home-card,
+  .home-learning-card,
+  .home-promo__panel,
+  .home-event__content,
+  .home-admission-band__chip-grid article,
+  .home-choose__item {
+    padding: 1.05rem;
+  }
+
+  .home-hero__visual {
+    min-height: 25rem;
+  }
+
+  .home-floating-card {
+    width: calc(100% - 1rem);
+    padding: 0.9rem 1rem;
+  }
+
+  .home-stat-strip {
+    gap: 0.55rem;
+    padding: 0.8rem;
+  }
+
+  .home-stat-strip__item strong {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero {
+    padding-top: 3rem;
+  }
+
+  .home-section-heading {
+    margin-bottom: 1.25rem;
+  }
+
+  .home-hero__actions {
+    gap: 0.65rem;
+  }
+
+  .home-hero__visual {
+    min-height: 22rem;
+  }
+
+  .home-stat-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .home-choose__item {
+    flex-direction: column;
+  }
+
+  .home-choose__bullet {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-hero {
+    align-items: center;
+  }
+
+  .home-hero__visual {
+    min-height: 40rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .home-hero h1 {
+    font-size: clamp(3rem, 4vw, 5rem);
   }
 }

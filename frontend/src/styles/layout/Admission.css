@@ -6,12 +6,6 @@
     linear-gradient(180deg, var(--color-page) 0%, var(--color-page-alt) 100%);
 }
 
-.section-shell {
-  width: min(var(--container-width), calc(100% - 2rem));
-  margin: 0 auto;
-  padding: var(--section-padding) 0;
-}
-
 .admission-hero {
   display: grid;
   gap: clamp(1.5rem, 3vw, 2.25rem);
@@ -119,6 +113,7 @@
 .admission-form__grid {
   display: grid;
   gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
 }
 
 .admission-field {
@@ -196,22 +191,61 @@
     padding: 2rem;
   }
 
-  .admission-form__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .admission-field--full {
     grid-column: 1 / -1;
   }
 }
 
 @media (max-width: 767px) {
-  .section-shell {
-    width: min(100% - 1.25rem, var(--container-width));
-    padding: 3.5rem 0;
-  }
-
   .admission-hero {
     padding-top: 4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .admission-hero h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+    max-width: none;
+  }
+
+  .admission-form-card__header h2 {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+    max-width: none;
+  }
+
+  .admission-form-card,
+  .admission-field input,
+  .admission-field textarea {
+    padding-inline: 0.95rem;
+  }
+
+  .admission-image-placeholder {
+    min-height: 16rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admission-hero {
+    padding-top: 3rem;
+  }
+
+  .admission-form-card {
+    padding: 1.1rem;
+  }
+
+  .admission-submit {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .admission-form-card {
+    padding: 2.1rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .admission-hero h1 {
+    font-size: clamp(3rem, 4vw, 4.75rem);
   }
 }
