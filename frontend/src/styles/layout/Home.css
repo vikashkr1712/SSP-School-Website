@@ -412,6 +412,7 @@
   padding: 1.4rem;
   box-shadow: var(--shadow-md);
   overflow: hidden;
+  border: 1px solid rgba(11, 78, 162, 0.08);
 }
 
 .home-promo__panel h2,
@@ -428,17 +429,36 @@
   margin: 0.8rem 0 0;
 }
 
+.home-promo__panel .home-button {
+  margin-top: 0.7rem;
+}
+
 .home-promo__panel img {
   height: 16rem;
   border-radius: 1.1rem;
+  box-shadow: var(--shadow-sm);
+  object-position: center center;
 }
 
 .home-promo__panel--gold {
-  background: linear-gradient(135deg, #f0cf4a 0%, #e6bf2d 100%);
+  background: linear-gradient(135deg, #f7e7a6 0%, #f0d96b 100%);
+  color: var(--color-text);
 }
 
 .home-promo__panel--warm {
-  background: linear-gradient(135deg, #e98b53 0%, #d97032 100%);
+  background: linear-gradient(135deg, #d99a5b 0%, #c97b3f 100%);
+  color: #ffffff;
+}
+
+.home-promo__panel--warm .home-eyebrow,
+.home-promo__panel--warm h2,
+.home-promo__panel--warm p {
+  color: #ffffff;
+}
+
+.home-promo__panel--warm .home-button--primary {
+  background: #ffffff;
+  color: var(--color-primary-dark);
 }
 
 .home-admission-band {
