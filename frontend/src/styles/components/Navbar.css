@@ -60,19 +60,20 @@
   display: none;
   width: 2.85rem;
   height: 2.85rem;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.08);
   cursor: pointer;
   padding: 0.55rem;
   transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+  z-index: 1100;
 }
 
 .navbar__toggle span {
   display: block;
   width: 100%;
   height: 2px;
-  background: #ffffff;
+  background: var(--color-primary-dark);
   border-radius: 999px;
 }
 
@@ -84,6 +85,14 @@
   display: flex;
   align-items: center;
   gap: 0.45rem;
+}
+
+/* Prevent long site name from pushing the toggle off-screen at small widths/zoom */
+.navbar__school-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 40vw;
 }
 
 .navbar__link {
