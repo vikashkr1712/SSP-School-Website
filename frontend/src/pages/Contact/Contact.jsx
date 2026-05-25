@@ -3,7 +3,7 @@ import "../../styles/layout/Contact.css";
 const contactCards = [
   {
     title: "Visit Us",
-    value: "SSP School, 24 Green Valley Road, Sector 14, Greenfield City",
+    value: "SSP School, Banaras Parao – Mugalsarai Road, Dandi",
     note: "Monday to Saturday | 8:00 AM - 4:00 PM",
   },
   {
@@ -34,7 +34,7 @@ const contactHighlights = [
   },
   {
     label: "Campus Address",
-    value: "24 Green Valley Road, Sector 14",
+    value: "Banaras Parao – Mugalsarai Road, Dandi",
   },
 ];
 
@@ -44,7 +44,7 @@ const quickInfo = [
   "Principal: Dr. Ananya Sharma",
   "Academic Coordinator: Mr. Ravi Kumar",
   "Transport Desk: +91 98765 43212",
-  "School Bus Routes: City Center, Riverside, Lakeview",
+  "School Bus Routes: City Center, Riverside, Lakeview, Mughalsarai",
 ];
 
 function Contact() {
@@ -77,13 +77,44 @@ function Contact() {
               alt="Students enjoying campus life at SSP School"
             />
           </div>
-          <div className="contact-hero__card-copy">
+          <div className="contact-hero__card-copy snapshot">
             <span className="contact-card__label contact-card__label--inverse">School Snapshot</span>
             <h2>Co-educational day school focused on academics, discipline, and growth.</h2>
             <p>
               We keep our communication lines open for admissions, transport, academics, and
               parent support throughout the week.
             </p>
+
+            <div className="snapshot__stats">
+              <article>
+                <strong>Established</strong>
+                <span>1995</span>
+              </article>
+              <article>
+                <strong>Students</strong>
+                <span>1,500+</span>
+              </article>
+              <article>
+                <strong>Faculty</strong>
+                <span>80+</span>
+              </article>
+            </div>
+
+            <div className="snapshot__facilities">
+              <strong>Key Facilities</strong>
+              <ul>
+                <li>Laboratories & Smart Classrooms</li>
+                <li>Sports Ground & Indoor Courts</li>
+                <li>Library & Learning Resource Centre</li>
+                <li>Transport & Canteen Services</li>
+              </ul>
+            </div>
+
+            <div className="snapshot__cta">
+              <a className="btn btn--primary" href="/admission">Apply / Enquire</a>
+              <a className="btn btn--ghost" href="#contact-details">Contact Us</a>
+            </div>
+
             <strong>SSP School</strong>
           </div>
         </div>
@@ -109,10 +140,10 @@ function Contact() {
         </div>
       </section>
 
-      <section className="contact-details section-shell">
+      <section id="contact-details" className="contact-details section-shell">
         <div className="contact-section-heading">
           <span>Contact Details</span>
-          <h2>Everything you need to reach SSP School in one place.</h2>
+          <h2>Everything you need to reach Seth M.R. Jaipuria School in one place.</h2>
         </div>
 
         <div className="contact-card-grid">
@@ -133,21 +164,27 @@ function Contact() {
             <h2>Find us easily during school hours.</h2>
           </div>
           <div className="contact-map__embed">
-            <div className="contact-map__canvas" aria-label="Stylized campus location map">
-              <div className="contact-map__road contact-map__road--horizontal" />
-              <div className="contact-map__road contact-map__road--vertical" />
-              <div className="contact-map__road contact-map__road--diagonal" />
-              <div className="contact-map__park contact-map__park--left" />
-              <div className="contact-map__park contact-map__park--right" />
-              <div className="contact-map__district contact-map__district--north">Greenfield City</div>
-              <div className="contact-map__district contact-map__district--south">Sector 14</div>
-              <div className="contact-map__pin">
-                <span className="contact-map__pin-dot" />
-                <span className="contact-map__pin-label">SSP School</span>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Seth+M.R.+Jaipuria+School+Banaras"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Seth M.R. Jaipuria School location in Google Maps"
+            >
+              <div className="contact-map__canvas" aria-label="Stylized campus location map">
+                <div className="contact-map__road contact-map__road--horizontal" />
+                <div className="contact-map__road contact-map__road--vertical" />
+                <div className="contact-map__road contact-map__road--diagonal" />
+                <div className="contact-map__park contact-map__park--left" />
+                <div className="contact-map__park contact-map__park--right" />
+                <div className="contact-map__district contact-map__district--south">Banaras Parao</div>
+                <div className="contact-map__pin">
+                  <span className="contact-map__pin-dot" />
+                  <span className="contact-map__pin-label">SSP School</span>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
-          <p className="contact-map__caption">Green Valley Road, Sector 14, Greenfield City</p>
+          <p className="contact-map__caption">SSP School Location</p>
         </div>
 
         <div className="contact-info card-panel">

@@ -88,12 +88,6 @@ function Home() {
             foundations to help every student succeed with confidence.
           </p>
 
-          <div className="home-hero__pills" aria-label="Quick school benefits">
-            <span>No Credit Card</span>
-            <span>14 Days Trial</span>
-            <span>Free For Teachers</span>
-          </div>
-
           <div className="home-hero__actions">
             <Link className="home-button home-button--primary" to="/admission">
               Start Learning
