@@ -21,6 +21,7 @@
   --radius-xl: 1.75rem;
   --radius-pill: 999px;
   --container-width: 1200px;
+  --content-gutter: clamp(1rem, 3vw, 3rem);
   --section-padding: clamp(3rem, 6vw, 4.75rem);
   --section-gap: clamp(1.25rem, 2vw, 1.75rem);
   --transition-fast: 180ms ease;
@@ -40,6 +41,8 @@ html {
 body {
   margin: 0;
   font-family: "Aptos", "Segoe UI", "Inter", sans-serif;
+  font-size: clamp(0.98rem, 0.94rem + 0.25vw, 1rem);
+  line-height: 1.55;
   color: var(--color-text);
   background: var(--color-page);
   text-rendering: optimizeLegibility;
@@ -61,6 +64,19 @@ img {
   display: block;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+blockquote,
+figcaption {
+  overflow-wrap: anywhere;
+}
+
 a {
   color: inherit;
 }
@@ -77,10 +93,17 @@ a {
   touch-action: manipulation;
 }
 
+:focus-visible {
+  outline: 3px solid rgba(255, 210, 63, 0.8);
+  outline-offset: 2px;
+}
+
 .section-shell {
-  width: min(100% - 2rem, var(--container-width));
+  width: 100%;
+  max-width: var(--container-width);
   margin: 0 auto;
-  padding: var(--section-padding) 0;
+  padding-inline: var(--content-gutter);
+  padding-block: var(--section-padding);
 }
 
 ::selection {
@@ -88,31 +111,10 @@ a {
   color: var(--color-text);
 }
 
-@media (max-width: 1280px) {
-  .section-shell {
-    width: min(100% - 2rem, var(--container-width));
-  }
-}
-
-@media (max-width: 1024px) {
-  .section-shell {
-    width: min(100% - 1.75rem, var(--container-width));
-  }
-}
-
-@media (max-width: 768px) {
-  .section-shell {
-    width: min(100% - 1.5rem, var(--container-width));
-  }
-}
-
-@media (max-width: 640px) {
+@media (max-width: 390px) {
   :root {
-    --section-padding: clamp(2.5rem, 8vw, 3.5rem);
-  }
-
-  .section-shell {
-    width: min(100% - 1.15rem, var(--container-width));
+    --content-gutter: 0.85rem;
+    --section-padding: clamp(2.2rem, 7vw, 3rem);
   }
 }
 
@@ -120,9 +122,64 @@ a {
   :root {
     --section-padding: clamp(2.25rem, 7vw, 3rem);
   }
+}
 
-  .section-shell {
-    width: min(100% - 0.9rem, var(--container-width));
+@media (min-width: 540px) {
+  :root {
+    --content-gutter: clamp(1rem, 3vw, 1.5rem);
+    --section-padding: clamp(2.4rem, 6.5vw, 3.35rem);
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --section-padding: clamp(2.35rem, 7.5vw, 3.35rem);
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --content-gutter: clamp(1.25rem, 2.5vw, 2.5rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --content-gutter: clamp(1.5rem, 2.5vw, 3rem);
+  }
+}
+
+@media (min-width: 820px) {
+  :root {
+    --content-gutter: clamp(1.25rem, 2.2vw, 2.75rem);
+    --section-padding: clamp(3rem, 5vw, 4.5rem);
+  }
+}
+
+@media (min-width: 912px) {
+  :root {
+    --content-gutter: clamp(1.4rem, 2.2vw, 2.9rem);
+    --section-padding: clamp(3rem, 4.8vw, 4.6rem);
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --container-width: 1220px;
+  }
+}
+
+@media (min-width: 1366px) {
+  :root {
+    --container-width: 1240px;
+    --content-gutter: clamp(1.5rem, 2vw, 3rem);
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container-width: 1260px;
+    --content-gutter: clamp(1.5rem, 1.8vw, 3rem);
   }
 }
 
@@ -131,8 +188,18 @@ a {
     --container-width: 1240px;
     --section-padding: clamp(3.25rem, 4vw, 5rem);
   }
+}
 
-  .section-shell {
-    width: min(100% - 2rem, var(--container-width));
+@media (min-width: 1728px) {
+  :root {
+    --container-width: 1280px;
+    --section-padding: clamp(3.5rem, 3.8vw, 5.2rem);
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --container-width: 1320px;
+    --section-padding: clamp(3.75rem, 3.5vw, 5.5rem);
   }
 }

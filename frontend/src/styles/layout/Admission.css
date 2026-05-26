@@ -10,7 +10,7 @@
   display: grid;
   gap: clamp(1.5rem, 3vw, 2.25rem);
   align-items: center;
-  padding-top: clamp(4rem, 8vw, 5.5rem);
+  padding-top: clamp(3.5rem, 7vw, 5.5rem);
 }
 
 .admission-eyebrow,
@@ -29,10 +29,10 @@
 }
 
 .admission-hero h1 {
-  font-size: clamp(2.6rem, 5vw, 4.5rem);
-  max-width: 12ch;
+  font-size: clamp(2.2rem, 5vw, 4.6rem);
+  max-width: 11.5ch;
   margin-top: 0.7rem;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
 }
 
 .admission-hero p {
@@ -113,7 +113,7 @@
 .admission-form__grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .admission-field {
@@ -198,7 +198,14 @@
 
 @media (max-width: 767px) {
   .admission-hero {
-    padding-top: 4rem;
+    padding-top: 3.35rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .admission-hero h1,
+  .admission-form-card__header h2 {
+    max-width: none;
   }
 }
 
@@ -235,6 +242,16 @@
 
   .admission-submit {
     width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  .admission-form-card {
+    padding: 1rem;
+  }
+
+  .admission-form {
+    gap: 0.9rem;
   }
 }
 

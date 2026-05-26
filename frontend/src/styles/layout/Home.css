@@ -10,7 +10,7 @@
   display: grid;
   gap: clamp(1.5rem, 3vw, 2.25rem);
   align-items: center;
-  padding-top: clamp(4rem, 8vw, 5.5rem);
+  padding-top: clamp(3.5rem, 7vw, 5.5rem);
 }
 
 .home-hero__content {
@@ -39,10 +39,10 @@
 }
 
 .home-hero h1 {
-  font-size: clamp(2.6rem, 5vw, 4.8rem);
-  max-width: 12ch;
+  font-size: clamp(2.2rem, 5.2vw, 4.9rem);
+  max-width: 11ch;
   margin-top: 0.85rem;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
 }
 
 .home-hero p,
@@ -55,8 +55,8 @@
 }
 
 .home-hero p {
-  font-size: 1.08rem;
-  max-width: 36rem;
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  max-width: 38rem;
 }
 
 .home-hero__actions {
@@ -75,6 +75,7 @@
   border-radius: var(--radius-pill);
   text-decoration: none;
   font-weight: 700;
+  font-size: clamp(0.95rem, 1vw, 1.05rem);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
 }
 
@@ -295,7 +296,7 @@
 .home-intro__feature-grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .home-feature-card__image img,
@@ -324,7 +325,7 @@
   display: grid;
   gap: 1rem;
   margin-bottom: 1.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .home-learning-card {
@@ -403,7 +404,7 @@
 .home-promo {
   display: grid;
   gap: 1.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .home-promo__panel {
@@ -467,7 +468,7 @@
   display: grid;
   gap: 1.25rem;
   align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .home-admission-band__copy {
@@ -517,7 +518,7 @@
 .home-event {
   display: grid;
   gap: 1.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .home-event__visual {
@@ -553,7 +554,7 @@
 .home-card-grid {
   display: grid;
   gap: 1.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .home-card {
@@ -562,6 +563,7 @@
   padding: 1.5rem;
   box-shadow: var(--shadow-sm);
   border: 1px solid rgba(11, 78, 162, 0.08);
+  height: 100%;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
@@ -591,6 +593,7 @@
   padding: 1rem 1.1rem;
   box-shadow: var(--shadow-sm);
   border: 1px solid rgba(11, 78, 162, 0.08);
+  height: 100%;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
@@ -646,13 +649,8 @@
 }
 
 @media (max-width: 767px) {
-  .section-shell {
-    width: min(100% - 1.25rem, var(--container-width));
-    padding: 3.5rem 0;
-  }
-
   .home-hero {
-    padding-top: 4rem;
+    padding-top: 3.35rem;
   }
 
   .home-intro__grid {
@@ -685,10 +683,45 @@
   }
 }
 
+@media (min-width: 641px) and (max-width: 767px) {
+  .home-hero {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .home-hero__content {
+    align-self: center;
+  }
+
+  .home-hero__visual {
+    min-height: 26rem;
+  }
+
+  .home-hero h1 {
+    max-width: 10ch;
+  }
+
+  .home-hero p {
+    max-width: 30rem;
+  }
+
+  .home-floating-card {
+    max-width: 13.5rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .home-hero h1,
+  .home-hero p {
+    max-width: none;
+  }
+}
+
 @media (max-width: 640px) {
   .home-hero {
     gap: 1.2rem;
-    padding-top: 3.5rem;
+    padding-top: 3rem;
   }
 
   .home-hero h1 {
@@ -729,7 +762,7 @@
   }
 
   .home-hero__visual {
-    min-height: 25rem;
+    min-height: 24rem;
   }
 
   .home-floating-card {
@@ -777,6 +810,29 @@
   }
 }
 
+@media (max-width: 390px) {
+  .home-hero {
+    gap: 1rem;
+  }
+
+  .home-hero__actions {
+    gap: 0.55rem;
+  }
+
+  .home-card,
+  .home-learning-card,
+  .home-promo__panel,
+  .home-event__content,
+  .home-admission-band__chip-grid article,
+  .home-choose__item {
+    padding: 0.95rem;
+  }
+
+  .home-floating-card {
+    width: calc(100% - 0.75rem);
+  }
+}
+
 @media (min-width: 1024px) {
   .home-hero {
     align-items: center;
@@ -784,6 +840,12 @@
 
   .home-hero__visual {
     min-height: 40rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .home-hero {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   }
 }
 

@@ -3,13 +3,15 @@
 .footer {
   background: linear-gradient(135deg, #3f2e23 0%, #4c382a 100%);
   color: #ffffff;
-  padding: clamp(2rem, 4vw, 2.75rem) 1rem;
+  padding: clamp(2rem, 4vw, 2.75rem) 0;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .footer__inner {
-  width: min(100% - 1.25rem, var(--container-width));
+  width: 100%;
+  max-width: var(--container-width);
   margin: 0 auto;
+  padding-inline: var(--content-gutter);
   display: grid;
   gap: 1.35rem;
   text-align: center;
@@ -42,9 +44,9 @@
 
 .footer__school-name {
   display: block;
-  font-size: 1.08rem;
+  font-size: clamp(1rem, 1.1vw, 1.08rem);
   font-weight: 800;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.005em;
 }
 
 .footer__text {
@@ -66,6 +68,7 @@
   color: #ffffff;
   text-decoration: none;
   font-weight: 600;
+  font-size: clamp(0.94rem, 1vw, 1rem);
   min-height: 2.75rem;
   display: inline-flex;
   align-items: center;
@@ -115,7 +118,19 @@
 
 @media (min-width: 1536px) {
   .footer__inner {
-    width: min(100% - 2rem, 1240px);
+    max-width: 1240px;
+  }
+}
+
+@media (min-width: 1728px) {
+  .footer__inner {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .footer__inner {
+    max-width: 1320px;
   }
 }
 
