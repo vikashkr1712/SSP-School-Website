@@ -2,14 +2,13 @@ import { Link } from "react-router-dom";
 import "../../styles/layout/Home.css";
 
 const heroImage = "/images/jaipuria-hero.jpg";
-
 const campusLifeImage = "/images/jaipuria-campus-1.jpg";
-
 const studentLifeImage = "/images/jaipuria-feature.jpg";
-
 const admissionVisual = "/images/jaipuria-event.jpg";
-
 const principalImage = "/images/jaipuria-campus-1.jpg";
+const promoImageOne = campusLifeImage;
+const promoImageTwo = studentLifeImage;
+const eventVisual = admissionVisual;
 
 const academicHighlights = [
   {
@@ -17,18 +16,21 @@ const academicHighlights = [
     description: "Balanced academics designed to build confidence, curiosity, and long-term success.",
     stat: "98%",
     label: "Student satisfaction",
+    image: "/images/class-xii-achievers-2026.png",
   },
   {
     title: "Experienced Teachers",
     description: "Dedicated mentors who support every learner with care, structure, and attention.",
     stat: "40+",
     label: "Expert faculty",
+    image: "/images/Deepak-Kumar-Bajaj-1.jpg",
   },
   {
     title: "Holistic Growth",
     description: "Sports, arts, and leadership opportunities that encourage all-round development.",
     stat: "25+",
     label: "Clubs & activities",
+    image: "/images/Pinnacle-3.jpg",
   },
 ];
 
@@ -61,18 +63,22 @@ const learningBlocks = [
   {
     title: "Letter Identification",
     grade: "Class - Pre School",
+    image: "/images/integral.png",
   },
   {
     title: "General Knowledge",
     grade: "Fourth Grade",
+    image: "/images/value-based-2.png",
   },
   {
     title: "Geography Quiz",
     grade: "First Grade",
+    image: "/images/Skill-centric-icon.png",
   },
   {
     title: "Visual Arts Training",
     grade: "Sketching class",
+    image: "/images/teacher-upskill-icon.png",
   },
 ];
 
@@ -181,7 +187,7 @@ function Home() {
           {learningBlocks.map((item) => (
             <article className="home-learning-card" key={item.title}>
               <div className="home-learning-card__art">
-                  <img src={item.title === "Visual Arts Training" ? studentLifeImage : campusLifeImage} alt={item.title} />
+                <img src={item.image} alt={item.title} />
               </div>
               <h3>{item.title}</h3>
               <p>{item.grade}</p>
@@ -192,6 +198,9 @@ function Home() {
         <div className="home-card-grid home-card-grid--stats">
           {academicHighlights.map((item) => (
             <article className="home-card" key={item.title}>
+              <div className="home-card__image">
+                <img src={item.image} alt={item.title} />
+              </div>
               <div className="home-card__stat">
                 <strong>{item.stat}</strong>
                 <span>{item.label}</span>
@@ -212,21 +221,21 @@ function Home() {
         <div className="home-choose__grid">
           <div className="home-choose__image-grid">
             <article className="home-choose__image-card home-choose__image-card--gold">
-              <img src={campusLifeImage} alt="Learning activities at SSP School" />
+              <img src={promoImageOne} alt="Learning activities at SSP School" />
               <div>
                 <h3>Life Skills for Kids</h3>
                 <p>Everyday habits, confidence, and values.</p>
               </div>
             </article>
             <article className="home-choose__image-card home-choose__image-card--green">
-              <img src={studentLifeImage} alt="Students exploring ideas at SSP School" />
+              <img src={promoImageTwo} alt="Students exploring ideas at SSP School" />
               <div>
                 <h3>Imagination is Power</h3>
                 <p>Creative thinking and expression.</p>
               </div>
             </article>
             <article className="home-choose__image-card home-choose__image-card--blue">
-              <img src={heroImage} alt="SSP School student growth illustration" />
+              <img src={eventVisual} alt="SSP School student growth illustration" />
               <div>
                 <h3>Grow Your Own Wings</h3>
                 <p>Support for academic and personal growth.</p>
@@ -274,7 +283,7 @@ function Home() {
               Learn More
             </Link>
           </div>
-          <img src={admissionVisual} alt="Admission support at SSP School" />
+          <img src={promoImageOne} alt="Admission support at SSP School" />
         </article>
       </section>
 
@@ -308,7 +317,7 @@ function Home() {
 
       <section className="home-event section-shell">
         <div className="home-event__visual">
-          <img src={campusLifeImage} alt="Classroom event at SSP School" />
+          <img src={eventVisual} alt="Classroom event at SSP School" />
         </div>
         <div className="home-event__content">
           <span className="home-eyebrow">Upcoming Event</span>

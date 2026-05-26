@@ -1,6 +1,8 @@
 import "../../styles/layout/About.css";
 
-const principalImage = "/images/jaipuria-campus-1.jpg";
+const principalImage = "/images/Deepak-Kumar-Bajaj-1.jpg";
+
+const campusImage = "/images/jaipuria-campus-1.jpg";
 
 const timeline = [
   {
@@ -61,7 +63,7 @@ function About() {
         </div>
 
         <div className="about-hero__visual about-image-placeholder" aria-hidden="true">
-          <img className="about-image-placeholder__img" src={principalImage} alt="Jaipuria campus visual" />
+          <img className="about-image-placeholder__img" src={campusImage} alt="Jaipuria campus visual" />
         </div>
       </section>
 

@@ -3,7 +3,7 @@
 .footer {
   background: linear-gradient(135deg, #3f2e23 0%, #4c382a 100%);
   color: #ffffff;
-  padding: clamp(2rem, 4vw, 2.75rem) 0;
+  padding: clamp(1.9rem, 4vw, 2.75rem) 0;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
@@ -15,6 +15,7 @@
   display: grid;
   gap: 1.35rem;
   text-align: center;
+  align-items: start;
 }
 
 .footer__brand-row {
@@ -131,6 +132,16 @@
 @media (min-width: 1920px) {
   .footer__inner {
     max-width: 1320px;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer__nav {
+    gap: 0.55rem;
+  }
+
+  .footer__link {
+    padding-inline: 0.8rem;
   }
 }
 

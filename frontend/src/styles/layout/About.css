@@ -33,6 +33,7 @@
   max-width: 12ch;
   margin-top: 0.7rem;
   letter-spacing: -0.035em;
+  text-wrap: balance;
 }
 
 .about-hero p,
@@ -85,6 +86,7 @@
   max-width: 18ch;
   margin-top: 0.55rem;
   letter-spacing: -0.025em;
+  text-wrap: balance;
 }
 
 .about-timeline__grid {
@@ -211,6 +213,21 @@
   }
 }
 
+@media (min-width: 641px) and (max-width: 767px) {
+  .about-hero {
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    gap: 1.5rem;
+  }
+
+  .about-hero__visual {
+    min-height: 18rem;
+  }
+
+  .about-hero h1 {
+    max-width: 10ch;
+  }
+}
+
 @media (max-width: 767px) {
   .about-hero {
     padding-top: 3.35rem;
@@ -256,6 +273,11 @@
   }
 
   .about-timeline__year {
+
+  .about-card__icon {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
     font-size: 0.92rem;
   }
 

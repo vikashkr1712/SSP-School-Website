@@ -33,6 +33,7 @@
   max-width: 11.5ch;
   margin-top: 0.7rem;
   letter-spacing: -0.035em;
+  text-wrap: balance;
 }
 
 .admission-hero p {
@@ -86,6 +87,7 @@
   max-width: 18ch;
   margin-top: 0.5rem;
   letter-spacing: -0.025em;
+  text-wrap: balance;
 }
 
 .admission-alert {
@@ -196,6 +198,21 @@
   }
 }
 
+@media (min-width: 641px) and (max-width: 767px) {
+  .admission-hero {
+    grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr);
+    gap: 1.5rem;
+  }
+
+  .admission-image-placeholder {
+    min-height: 18rem;
+  }
+
+  .admission-hero h1 {
+    max-width: 10ch;
+  }
+}
+
 @media (max-width: 767px) {
   .admission-hero {
     padding-top: 3.35rem;
@@ -252,6 +269,10 @@
 
   .admission-form {
     gap: 0.9rem;
+  }
+
+  .admission-submit {
+    min-height: 2.85rem;
   }
 }
 
