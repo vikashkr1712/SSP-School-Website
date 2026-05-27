@@ -40,11 +40,12 @@
 }
 
 .home-hero h1 {
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  max-width: 10.5ch;
+  /* slightly reduce the very large headline for better balance */
+  font-size: clamp(2rem, 4.5vw, 3.6rem);
+  max-width: 12ch;
   margin-top: 0.35rem;
-  letter-spacing: -0.045em;
-  line-height: 1.02;
+  letter-spacing: -0.035em;
+  line-height: 1.06;
   text-wrap: balance;
 }
 
@@ -58,9 +59,10 @@
 }
 
 .home-hero p {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  max-width: 42rem;
-  line-height: 1.75;
+  /* make the supporting copy a touch larger for readability */
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  max-width: 44rem;
+  line-height: 1.8;
 }
 
 .home-hero__actions {
@@ -118,24 +120,17 @@
 }
 
 .home-hero__visual {
-  min-height: 38rem;
+  /* center visual area and expand width to use prior side-image space */
+  min-height: 36rem;
   display: grid;
   place-items: center;
   justify-items: center;
   width: 100%;
-  max-width: 44rem;
-  margin-inline: auto;
-}
-.home-hero__visual {
-  min-height: 38rem;
-  display: grid;
-  place-items: center;
-  justify-items: center;
-  width: 100%;
-  max-width: 56rem;
+  max-width: 64rem;
   margin-inline: auto;
   border-radius: 1rem;
   overflow: hidden;
+  position: relative;
 }
 
 .home-hero__visual::after {
@@ -202,8 +197,10 @@
 }
 
 .home-image-placeholder--hero {
-  min-height: 24rem;
-  max-width: 31rem;
+  /* make hero image fill the visual area and provide balanced spacing */
+  min-height: 28rem;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -225,17 +222,17 @@
 }
 
 .home-stat-strip {
-  position: absolute;
-  left: 50%;
-  bottom: -1.25rem;
-  transform: translateX(-50%);
-  width: min(100%, 40rem);
+  /* place the stat strip below the visual and align to the visual width */
+  position: relative;
+  margin: 1rem auto 0;
+  width: min(100%, 56rem);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
   padding: 1rem;
   border-radius: 1.5rem;
-  background: #3f2e23;
+  /* switched from brown to the primary blue gradient for stronger brand alignment */
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark));
   color: #ffffff;
   box-shadow: var(--shadow-lg);
 }
@@ -248,23 +245,16 @@
 
 .home-stat-strip__item strong {
   display: block;
-  font-size: 1.35rem;
+  /* slightly reduce the large stat number and increase the supporting text */
+  font-size: 1.15rem;
   color: var(--color-accent);
 }
-
 .home-stat-strip__item span {
   display: block;
-  margin-top: 0.35rem;
-  color: rgba(255, 255, 255, 0.84);
-  font-size: 0.85rem;
+  margin-top: 0.45rem;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 0.95rem;
   line-height: 1.45;
-}
-
-.home-floating-card strong,
-.home-card__stat strong {
-  display: block;
-  color: var(--color-primary);
-  font-size: 1.15rem;
 }
 
 .home-floating-card span,
@@ -286,10 +276,92 @@
   text-wrap: balance;
 }
 
+/* Make the highlights heading take roughly half the container on wider screens */
+@media (min-width: 920px) {
+  .home-highlights .home-section-heading {
+    /* increase width so long heading wraps into two lines instead of three */
+    width: 65%;
+    max-width: 75%;
+    box-sizing: border-box;
+    padding-inline-end: 1rem;
+  }
+  .home-highlights .home-section-heading h2 {
+    /* slightly reduce the display size at large viewports to help it fit into two lines */
+    max-width: 100%;
+    font-size: clamp(1.9rem, 2.6vw, 2.8rem);
+    line-height: 1.02;
+  }
+
+  /* Force 'Why Choose Our School' heading to wrap into three lines at desktop sizes */
+  .home-choose .home-section-heading {
+    width: 45%;
+    max-width: 45%;
+    box-sizing: border-box;
+    padding-inline-end: 0.5rem;
+  }
+  .home-choose .home-section-heading h2 {
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    line-height: 1.02;
+    margin-top: 0.2rem;
+  }
+}
+
 .home-intro__grid,
 .home-choose__grid {
   display: grid;
   gap: 1.5rem;
+}
+
+@media (min-width: 820px) {
+  .home-intro__grid {
+    /* widen the right column so cards can align vertically with the left copy */
+    grid-template-columns: 1fr minmax(480px, 820px);
+    /* align both columns to the top so cards start at the same height as the heading */
+    align-items: start;
+    gap: 2rem;
+  }
+
+  .home-intro__copy {
+    align-self: start;
+  }
+
+  .home-intro__feature-grid {
+    /* two rows for the feature cards; allow them to size naturally but with a larger min-height */
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    gap: 1rem;
+    margin-top: 0; /* ensure cards touch the top of the right column */
+    margin-bottom: 0; /* remove bottom margin so next section sits directly after cards */
+    transform: none; /* remove previous nudges */
+  }
+
+  .home-feature-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 24rem; /* increase card height */
+    width: 100%;
+  }
+
+  .home-feature-card__image {
+    flex: 0 0 auto;
+    min-height: 14rem; /* increase image area inside card */
+  }
+
+  .home-feature-card__text {
+    flex: 1 1 auto;
+  }
+}
+
+/* Nudge the feature cards slightly upward and reduce left gutter for better visual balance */
+@media (min-width: 900px) {
+  .home-intro {
+    padding-inline-start: calc(var(--content-gutter) * 0.8);
+    padding-bottom: clamp(0.5rem, 1vw, 1.25rem); /* shrink bottom padding to remove extra gap */
+  }
+
+  .home-intro__feature-grid {
+    transform: translateY(-0.45rem);
+  }
 }
 
 .home-intro__copy,
@@ -300,6 +372,14 @@
 .home-event__content {
   display: grid;
   align-content: center;
+}
+
+/* Reduce paragraph gap inside the intro copy to match design reference */
+.home-intro__copy p {
+  margin: 0 0 1rem; /* tighten vertical gap between paragraphs */
+}
+.home-intro__copy p + p {
+  margin-top: 0.6rem; /* small space between consecutive paragraphs */
 }
 
 .home-intro__feature-grid {
@@ -331,12 +411,15 @@
   border: 1px solid var(--color-border);
   height: 100%;
   transition: transform 220ms var(--motion-ease), box-shadow 220ms var(--motion-ease), border-color 220ms var(--motion-ease);
+  overflow: hidden; /* ensure images can be pulled to card edges */
 }
 
 .home-feature-card__image {
-  min-height: 10rem;
-  border-radius: 1rem;
+  min-height: 12rem;
+  border-radius: 1rem 1rem 0 0;
   overflow: hidden;
+  /* pull image to card edges by negating the card padding */
+  margin: -1rem -1rem 0 -1rem;
 }
 
 .home-feature-card__text {
@@ -357,7 +440,6 @@
 }
 
 .home-feature-card__image img,
-.home-learning-card__art img,
 .home-choose__image-card img,
 .home-promo__panel img,
 .home-admission-band__visual img,
@@ -366,6 +448,17 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: inherit;
+}
+
+/* Learning grid icons should not be cropped — use contain so full icon is visible */
+.home-learning-card__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 0.9rem; /* breathing room inside the art area */
+  background: transparent;
 }
 
 .home-card-grid--stats .home-card:nth-child(2) .home-card__image img {
@@ -422,19 +515,49 @@
   color: var(--color-text-muted);
 }
 
+.home-choose__intro--left {
+  margin-bottom: 1rem;
+  padding-right: 0.5rem;
+}
+
+/* Layout the choose content so the intro sits above and the list stretches to align with left cards */
+.home-choose__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-choose__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1 1 auto;
+  justify-content: space-between;
+}
+
 .home-choose__image-grid {
   display: grid;
   gap: 0.9rem;
+}
+
+@media (min-width: 920px) {
+  .home-choose__image-grid {
+    /* switch to column flex at larger widths so we can distribute cards evenly to match the right column */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+    height: 100%;
+  }
 }
 
 .home-choose__image-card {
   display: grid;
   grid-template-columns: 5.5rem minmax(0, 1fr);
   gap: 0.85rem;
-  align-items: center;
+  align-items: stretch; /* allow image to fill vertically */
   border-radius: 1.25rem;
   overflow: hidden;
-  padding: 0.85rem;
+  padding: 0; /* remove outer padding so image can touch card edge */
   color: #ffffff;
   box-shadow: var(--shadow-md);
 }
@@ -443,9 +566,13 @@
   width: 100%;
   height: 100%;
   min-height: 5.5rem;
-  border-radius: 0.95rem;
-  object-fit: contain;
-  background: rgba(255, 255, 255, 0.88);
+  display: block;
+  object-fit: cover; /* fill the image area */
+  border-radius: 1.25rem 0 0 1.25rem; /* round left corners to match card */
+}
+
+.home-choose__image-card > div {
+  padding: 0.85rem; /* restore padding for the text column */
 }
 
 .home-choose__image-card h3,
@@ -466,6 +593,10 @@
   background: linear-gradient(135deg, #6a8ec6 0%, #4f74ab 100%);
 }
 
+.home-choose__image-card--teal {
+  background: linear-gradient(135deg, #2aa89e 0%, #16857a 100%);
+}
+
 .home-promo {
   display: grid;
   gap: 1.25rem;
@@ -477,11 +608,17 @@
   gap: 1rem;
   grid-template-columns: minmax(0, 1fr);
   border-radius: var(--radius-xl);
-  padding: 1.4rem;
+  /* remove panel padding so image can reach edges */
+  padding: 0;
   box-shadow: var(--shadow-md);
   overflow: hidden;
   border: 1px solid rgba(11, 78, 162, 0.08);
   height: 100%;
+}
+
+/* keep content padded while allowing the image to be full-bleed */
+.home-promo__panel > div {
+  padding: 1.4rem;
 }
 
 .home-promo__panel h2,
@@ -503,11 +640,12 @@
 }
 
 .home-promo__panel img {
+  width: 100%;
   height: 16rem;
-  border-radius: 1.1rem;
-  box-shadow: var(--shadow-sm);
+  display: block;
   object-fit: cover;
   object-position: center center;
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
 }
 
 .home-promo__panel--gold {
@@ -595,9 +733,13 @@
 }
 
 .home-event__visual img {
-  height: 16rem;
-  object-fit: contain;
-  background: rgba(255, 255, 255, 0.88);
+  width: 100%;
+  height: 100%;
+  min-height: 16rem;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+  background: transparent;
 }
 
 .home-event__content {
@@ -632,10 +774,11 @@
   gap: 0.8rem;
   background: var(--color-surface);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 1.5rem; 
   box-shadow: var(--shadow-sm);
   border: 1px solid rgba(11, 78, 162, 0.08);
   height: 100%;
+  overflow: hidden; /* ensure full-bleed images are clipped to the card radius */
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 .home-card {
@@ -651,9 +794,11 @@
 }
 
 .home-card__image {
-  height: 8.75rem;
-  border-radius: 1rem;
+  height: 12rem; /* larger image area to fully cover card top */
   overflow: hidden;
+  /* pull the image to the card edges by offsetting the card padding */
+  margin: calc(-1 * 1.5rem) calc(-1 * 1.5rem) 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
 .home-card__image img {
@@ -661,6 +806,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: inherit;
 }
 
 .home-card-grid--stats .home-card:nth-child(2) .home-card__image img {
@@ -691,7 +837,7 @@
 .home-choose__item {
   display: flex;
   gap: 0.9rem;
-  align-items: flex-start;
+  align-items: center;
   background: var(--color-surface);
   border-radius: var(--radius-md);
   padding: 1rem 1.1rem;
@@ -702,7 +848,6 @@
 }
 
 .home-choose__bullet {
-  margin-top: 0.35rem;
   width: 0.8rem;
   height: 0.8rem;
   border-radius: var(--radius-pill);
@@ -716,7 +861,8 @@
 }
 
 .home-cta__content {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  /* Refined blue gradient tuned for the site's blue theme */
+  background: linear-gradient(135deg, #2b67b8 0%, #083a76 100%);
   color: #ffffff;
   border-radius: var(--radius-xl);
   padding: 2rem;
@@ -735,6 +881,15 @@
 
 .home-cta__content .home-button {
   margin-top: 0.75rem;
+  background: #ffffff; /* white pill button */
+  color: var(--color-primary-dark);
+  box-shadow: 0 10px 30px rgba(9,28,56,0.08);
+  border-radius: 999px;
+  padding: 0.9rem 2.25rem;
+}
+
+.home-cta__content .home-button:hover {
+  transform: translateY(-2px);
 }
 
 @media (min-width: 768px) {
@@ -990,5 +1145,84 @@
 @media (min-width: 1536px) {
   .home-hero h1 {
     font-size: clamp(3rem, 4vw, 5rem);
+  }
+}
+
+@media (min-width: 1280px) {
+  .home-highlights .home-section-heading {
+    /* allow slightly wider heading block on very large screens to limit wrapping */
+    width: 75%;
+    max-width: 75%;
+  }
+  .home-highlights .home-section-heading h2 {
+    font-size: clamp(2rem, 2.8vw, 3rem);
+    line-height: 1.02;
+  }
+}
+
+/* At large desktop widths, give the left column more space so long headings can use two lines */
+@media (min-width: 1200px) {
+  .home-choose__grid {
+    grid-template-columns: 58% 42%;
+    gap: 2.25rem;
+    align-items: start;
+  }
+
+  .home-choose .home-section-heading {
+    width: auto;
+    max-width: none;
+    padding-inline-end: 0.5rem;
+  }
+
+  .home-choose .home-section-heading h2 {
+    font-size: clamp(2rem, 2.8vw, 2.9rem);
+    line-height: 1.03;
+    max-width: none;
+  }
+}
+
+/* Specific tuning for common desktop viewport (≈1368px) to force a 2-line headline */
+@media (min-width: 1300px) and (max-width: 1400px) {
+  .home-choose .home-section-heading {
+    width: auto;
+    max-width: none;
+    padding-inline-end: 0.5rem;
+    margin-bottom: 0.6rem; /* reduce gap so cards sit higher */
+  }
+
+  .home-choose .home-section-heading h2 {
+    max-width: 680px; /* limit width so text wraps into two lines at this size */
+    font-size: 2.6rem; /* tuned to render two lines visually */
+    line-height: 1.02;
+    margin-bottom: 0.6rem;
+  }
+}
+
+/* Strong, specific rules for common desktop widths (e.g. 1368×768) to force 2-line headline */
+@media (min-width: 1320px) and (max-width: 1380px) {
+  .home-choose__grid {
+    grid-template-columns: 56% 44% !important;
+    gap: 2rem !important;
+  }
+
+  .home-choose .home-section-heading,
+  .home-choose .home-section-heading h2 {
+    display: block !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .home-choose .home-section-heading h2 {
+    max-width: 620px !important; /* tuned width to force two-line wrap */
+    font-size: 2.3rem !important; /* reduce size slightly to fit two lines */
+    line-height: 1.02 !important;
+    margin-bottom: 0.4rem !important;
+  }
+}
+
+/* Fallback: apply a similar constraint for any large desktops */
+@media (min-width: 1200px) {
+  .home-choose .home-section-heading h2 {
+    max-width: 720px;
   }
 }

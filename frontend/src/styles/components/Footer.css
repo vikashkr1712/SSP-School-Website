@@ -9,7 +9,7 @@
 
 .footer__inner {
   width: 100%;
-  max-width: var(--container-width);
+  max-width: var(--container-max);
   margin: 0 auto;
   padding-inline: var(--content-gutter);
   display: grid;

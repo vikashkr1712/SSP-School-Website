@@ -48,11 +48,6 @@ const featureCards = [
     image: campusLifeImage,
   },
   {
-    title: "Imagination is Power",
-    description: "Creative projects and guided activities help students think independently.",
-    image: studentLifeImage,
-  },
-  {
     title: "Grow Your Own Wings",
     description: "We support every learner with mentoring, encouragement, and structure.",
     image: admissionVisual,
@@ -105,16 +100,8 @@ function Home() {
         </div>
 
         <div className="home-hero__visual" aria-hidden="true">
-          <div className="home-hero__side-card home-hero__side-card--left">
-            <img src={campusLifeImage} alt="Student life at SSP School" />
-          </div>
-
           <div className="home-image-placeholder home-image-placeholder--hero">
             <img className="home-image-placeholder__img" src={heroImage} alt="SSP School campus illustration" />
-          </div>
-
-          <div className="home-hero__side-card home-hero__side-card--right">
-            <img src={studentLifeImage} alt="Creative student life at SSP School" />
           </div>
 
           <div className="home-floating-card">
@@ -140,13 +127,12 @@ function Home() {
       </section>
 
       <section className="home-intro section-shell">
-        <div className="home-section-heading">
-          <span>School Introduction</span>
-          <h2>Smart and clever kids ready to fly high.</h2>
-        </div>
-
         <div className="home-intro__grid">
           <div className="home-intro__copy">
+            <div className="home-section-heading">
+              <span>School Introduction</span>
+              <h2>Smart and clever kids ready to fly high.</h2>
+            </div>
             <p>
               We create an environment where students feel valued and motivated. From early years
               learning to guided development, our programs are built to support growth at every
@@ -220,7 +206,11 @@ function Home() {
 
         <div className="home-choose__grid">
           <div className="home-choose__image-grid">
-            <article className="home-choose__image-card home-choose__image-card--gold">
+              <p className="home-choose__intro home-choose__intro--left">
+                We focus on an impactful lesson at a time, making sure children feel encouraged and
+                supported.
+              </p>
+              <article className="home-choose__image-card home-choose__image-card--gold">
               <img src={promoImageOne} alt="Learning activities at SSP School" />
               <div>
                 <h3>Life Skills for Kids</h3>
@@ -241,6 +231,13 @@ function Home() {
                 <p>Support for academic and personal growth.</p>
               </div>
             </article>
+            <article className="home-choose__image-card home-choose__image-card--teal">
+              <img src={studentLifeImage} alt="Children learning and playing at SSP School" />
+              <div>
+                <h3>Discover & Play</h3>
+                <p>Hands-on activities that spark curiosity and teamwork.</p>
+              </div>
+            </article>
           </div>
 
           <div className="home-choose__content">
@@ -248,12 +245,15 @@ function Home() {
               We focus on an impactful lesson at a time, making sure children feel encouraged and
               supported.
             </p>
-            {chooseItems.map((item) => (
-              <div className="home-choose__item" key={item}>
-                <span className="home-choose__bullet" aria-hidden="true" />
-                <p>{item}</p>
-              </div>
-            ))}
+
+            <div className="home-choose__list">
+              {chooseItems.map((item) => (
+                <div className="home-choose__item" key={item}>
+                  <span className="home-choose__bullet" aria-hidden="true" />
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
