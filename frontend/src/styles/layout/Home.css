@@ -28,7 +28,7 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
 }
 
 .home-hero h1,
@@ -40,9 +40,9 @@
 }
 
 .home-hero h1 {
-  /* slightly reduce the very large headline for better balance */
-  font-size: clamp(2rem, 4.5vw, 3.6rem);
-  max-width: 12ch;
+  /* slightly reduce the very large headline for better balance and allow 3-4 lines */
+  font-size: clamp(1.6rem, 3.6vw, 2.8rem);
+  max-width: 28ch;
   margin-top: 0.35rem;
   letter-spacing: -0.035em;
   line-height: 1.06;
@@ -60,7 +60,7 @@
 
 .home-hero p {
   /* make the supporting copy a touch larger for readability */
-  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-size: clamp(1.1rem, 1.9vw, 1.35rem);
   max-width: 44rem;
   line-height: 1.8;
 }
@@ -81,7 +81,7 @@
   border-radius: 12rem;
   text-decoration: none;
   font-weight: 700;
-  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
   min-width: 9.5rem;
   transition: transform 220ms var(--motion-ease), box-shadow 220ms var(--motion-ease), opacity 180ms var(--motion-ease);
 }
@@ -246,7 +246,7 @@
 .home-stat-strip__item strong {
   display: block;
   /* slightly reduce the large stat number and increase the supporting text */
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   color: var(--color-accent);
 }
 .home-stat-strip__item span {
@@ -260,7 +260,7 @@
 .home-floating-card span,
 .home-card__stat span {
   color: var(--color-text-muted);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
 }
 
 .home-section-heading {
@@ -269,7 +269,7 @@
 
 .home-section-heading h2,
 .home-cta h2 {
-  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-size: clamp(1.7rem, 3.2vw, 2.6rem);
   max-width: 18ch;
   margin-top: 0.6rem;
   letter-spacing: -0.025em;
@@ -635,8 +635,9 @@
   margin: 0.8rem 0 0;
 }
 
-.home-promo__panel .home-button {
-  margin-top: 0.7rem;
+.home-promo__panel .home-button,
+.home-intro .home-button {
+  margin-top: 2.4rem;
 }
 
 .home-promo__panel img {
@@ -1144,7 +1145,7 @@
 
 @media (min-width: 1536px) {
   .home-hero h1 {
-    font-size: clamp(3rem, 4vw, 5rem);
+    font-size: clamp(2.6rem, 3.6vw, 4rem);
   }
 }
 

@@ -100,22 +100,11 @@ function Contact() {
               </article>
             </div>
 
-            <div className="snapshot__facilities">
-              <strong>Key Facilities</strong>
-              <ul>
-                <li>Laboratories & Smart Classrooms</li>
-                <li>Sports Ground & Indoor Courts</li>
-                <li>Library & Learning Resource Centre</li>
-                <li>Transport & Canteen Services</li>
-              </ul>
-            </div>
-
             <div className="snapshot__cta">
               <a className="btn btn--primary" href="/admission">Apply / Enquire</a>
               <a className="btn btn--ghost" href="#contact-details">Contact Us</a>
             </div>
-
-            <strong>SSP School</strong>
+            
           </div>
         </div>
       </section>

@@ -19,7 +19,7 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
 }
 
 .about-hero h1,
@@ -29,8 +29,8 @@
 }
 
 .about-hero h1 {
-  font-size: clamp(2.2rem, 5vw, 4.6rem);
-  max-width: 12ch;
+  font-size: clamp(1.6rem, 3.6vw, 2.8rem);
+  max-width: 28ch;
   margin-top: 0.7rem;
   letter-spacing: -0.035em;
   text-wrap: balance;
@@ -43,6 +43,7 @@
 .about-timeline__body p {
   color: var(--color-text-muted);
   line-height: 1.7;
+  font-size: clamp(1.1rem, 1.9vw, 1.35rem);
 }
 
 .about-image-placeholder {
@@ -82,7 +83,7 @@
 }
 
 .about-section-heading h2 {
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
   max-width: 18ch;
   margin-top: 0.55rem;
   letter-spacing: -0.025em;
@@ -92,6 +93,35 @@
 .about-timeline__grid {
   display: grid;
   gap: 1rem;
+}
+
+/* Scoped adjustments for the School History block (screenshot area) */
+.about-timeline .about-section-heading h2 {
+  /* slightly larger for improved readability while still targeting ~2 lines */
+  font-size: clamp(1.55rem, 2.8vw, 2.3rem);
+  max-width: 44ch; /* tuned to keep approx 2-line wrap on desktop */
+  line-height: 1.04;
+  margin-bottom: 0.8rem;
+}
+
+.about-timeline .about-timeline__item {
+  padding: 1.1rem; /* slightly increased padding for better spacing */
+  border-radius: 1rem;
+}
+
+.about-timeline .about-timeline__body h3 {
+  font-size: 1.12rem; /* slightly increased for readability */
+  margin-bottom: 0.25rem;
+}
+
+.about-timeline .about-timeline__body p {
+  font-size: clamp(1rem, 1.15vw, 1.08rem); /* slightly larger supporting copy */
+  margin: 0;
+}
+
+.about-timeline .about-timeline__year {
+  padding: 0.5rem 0.85rem; /* slightly larger year badge */
+  font-size: 1rem;
 }
 
 .about-timeline__item {
@@ -158,8 +188,13 @@
 
 .about-card--facility {
   display: flex;
-  align-items: flex-start;
-  gap: 0.9rem;
+  align-items: center;
+  gap: 1.15rem; /* slightly increase gap so text sits a bit more to the right */
+}
+
+.about-card--facility > p {
+  margin: 0;
+  padding-left: 0.2rem; /* nudges the card text slightly to the right */
 }
 
 .about-card__icon {
@@ -172,6 +207,14 @@
   color: var(--color-text);
   font-weight: 900;
   flex-shrink: 0;
+}
+
+/* Facilities heading: keep it to ~2 lines on desktop */
+.about-facilities .about-section-heading h2 {
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  max-width: 34ch; /* tuned to wrap into roughly 2 lines at common desktop widths */
+  line-height: 1.04;
+  margin-bottom: 1rem;
 }
 
 .about-achievement-card {
@@ -194,11 +237,42 @@
   margin: 0;
 }
 
+/* Scoped: make Achievements heading wrap into ~2 lines */
+.about-achievements .about-section-heading h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  max-width: 40ch; /* tuned to create roughly 2 lines on desktop */
+  line-height: 1.04;
+  margin-bottom: 1rem;
+}
+
 .about-section-heading,
 .about-card,
 .about-achievement-card,
 .about-timeline__item {
   scroll-margin-top: 6rem;
+}
+
+/* Scoped: Mission & Vision block adjustments (match screenshot) */
+.about-mission .about-section-heading h2 {
+  font-size: clamp(1.55rem, 2.8vw, 2.3rem);
+  max-width: 36ch; /* keep two-line goal while increasing size slightly */
+  line-height: 1.02;
+  margin-bottom: 1rem;
+}
+
+.about-mission .about-card {
+  padding: 1.15rem; /* slightly increased padding for balance with larger text */
+  border-radius: 1rem;
+}
+
+.about-mission .about-card h3 {
+  font-size: 1.06rem;
+  margin-bottom: 0.6rem;
+}
+
+.about-mission .about-card p {
+  font-size: clamp(1rem, 1.1vw, 1.05rem);
+  line-height: 1.6;
 }
 
 @media (min-width: 768px) {
@@ -295,6 +369,55 @@
 
 @media (min-width: 1536px) {
   .about-hero h1 {
-    font-size: clamp(3rem, 4vw, 4.75rem);
+    font-size: clamp(2.6rem, 3.6vw, 4rem);
+  }
+}
+
+/* Scoped: Principal section adjustments to match screenshot */
+.about-principal .about-section-heading h2 {
+  font-size: clamp(1.55rem, 2.8vw, 2.3rem);
+  max-width: 36ch; /* keep heading to ~2 lines */
+  line-height: 1.02;
+  margin-bottom: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .about-principal__grid {
+    grid-template-columns: 48% 52%; /* reduce image width so card is relatively larger */
+    align-items: start; /* align to top so card doesn't stretch to image height */
+    gap: 1.5rem;
+  }
+
+  .about-principal__photo.about-image-placeholder--portrait {
+    /* make the photo container a square and limit its size */
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    max-width: 18rem; /* control square size */
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  .about-principal__photo.about-image-placeholder--portrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* fill square without distortion */
+    object-position: center center;
+  }
+
+  .about-principal__message.about-card {
+    padding: 0.95rem; /* reduce card padding to make card visually smaller */
+    height: auto; /* prevent card from stretching to match image height */
+  }
+
+  /* center the message card vertically relative to the image */
+  .about-principal__message.about-card {
+    align-self: center;
+  }
+
+  .about-principal__message p {
+    font-size: clamp(1rem, 1.1vw, 1.06rem);
+    line-height: 1.7;
+    margin: 0;
   }
 }

@@ -9,7 +9,8 @@
 .contact-hero {
   display: grid;
   gap: clamp(1.5rem, 3vw, 2.25rem);
-  align-items: stretch;
+  /* keep columns top-aligned so a taller card doesn't push following content down */
+  align-items: start;
   padding-top: clamp(3.5rem, 7vw, 5.5rem);
 }
 
@@ -43,7 +44,7 @@
   display: block;
   margin-bottom: 0.35rem;
   color: var(--color-primary);
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -58,7 +59,7 @@
 .contact-hero__card {
   position: relative;
   overflow: hidden;
-  min-height: 100%;
+  min-height: auto; /* don't force full height — allow natural content height */
 }
 
 .contact-hero__image-wrap {
@@ -71,7 +72,8 @@
 .contact-hero__image {
   display: block;
   width: 100%;
-  height: clamp(14rem, 32vw, 20rem);
+  /* reduce visual height so the snapshot card is shorter */
+  height: clamp(10rem, 28vw, 14rem);
   object-fit: cover;
 }
 
@@ -95,20 +97,20 @@
 
 .snapshot__stats article {
   background: rgba(255,255,255,0.06);
-  padding: 0.6rem 0.8rem;
+  padding: 0.45rem 0.6rem;
   border-radius: 0.6rem;
   text-align: center;
 }
 
 .snapshot__stats strong {
   display: block;
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   color: rgba(255,255,255,0.85);
 }
 
 .snapshot__stats span {
   display: block;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
   margin-top: 0.25rem;
 }
@@ -188,7 +190,7 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
 }
 
 .contact-hero h1,
@@ -198,9 +200,14 @@
   letter-spacing: -0.03em;
 }
 
+/* Add breathing room between section heading and the card grid to avoid collision */
+.contact-section-heading h2 {
+  margin-bottom: 1.25rem;
+}
+
 .contact-hero h1 {
-  font-size: clamp(2.2rem, 5vw, 4.6rem);
-  max-width: 11.5ch;
+  font-size: clamp(1.6rem, 3.6vw, 2.8rem);
+  max-width: 28ch;
   margin-top: 0.7rem;
 }
 
@@ -214,8 +221,9 @@
 
 .contact-card-grid {
   display: grid;
-  gap: 1.25rem;
+  gap: 1.75rem; /* slightly more gap between cards */
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-top: 0.75rem; /* separate grid from heading */
 }
 
 .contact-card,
@@ -239,6 +247,11 @@
 .contact-card--highlight {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: #ffffff;
+}
+
+.contact-card--highlight {
+  /* reduce vertical padding so card height is smaller */
+  padding: 1rem;
 }
 
 .contact-card--highlight p,
@@ -548,6 +561,17 @@
   .contact-hero,
   .contact-lower {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Reduce left gutter and slightly rebalance columns for the contact hero */
+@media (min-width: 900px) {
+  .contact-hero.section-shell {
+    padding-inline: clamp(0.75rem, 1.4vw, 1.25rem);
+  }
+
+  .contact-hero {
+    grid-template-columns: 1.12fr 0.88fr; /* nudge the right card leftwards */
   }
 }
 

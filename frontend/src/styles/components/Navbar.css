@@ -186,12 +186,17 @@
     flex-direction: column;
     justify-content: center;
     flex: 0 0 auto;
+    /* position toggle at the right edge */
+    position: absolute;
+    right: var(--content-gutter);
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .navbar__menu {
     position: absolute;
     left: var(--content-gutter);
-    right: var(--content-gutter);
+    right: calc(var(--content-gutter) + 3.5rem); /* leave space for toggle */
     top: calc(100% + 0.5rem);
     display: grid;
     gap: 0.45rem;
